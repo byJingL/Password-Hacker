@@ -6,11 +6,17 @@ CHAR = '0123456789abcdefghijklmnopqrstuvwxyz'
 
 
 # Custom generator
-def find_password():
-    for i in range(1, len(CHAR)+1):
-        pool = itertools.product(CHAR, repeat=i)
-        for item in pool:
-            yield ''.join(item)
+def dict_based_find_password():
+    with open('passwords.txt', 'r') as file:
+        data = file.read().splitlines()
+        for pw in data:
+            possible_letters = [[letter.lower(), letter.upper()] for letter in pw]
+            # or
+            # possible_letters = ([letter.lower(), letter.upper()] for letter in pw)
+
+            pool = itertools.product(*possible_letters)
+            for s in pool:
+                yield ''.join(s)
 
 
 parser = ArgumentParser()
