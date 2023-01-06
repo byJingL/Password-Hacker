@@ -149,3 +149,20 @@ for word in words:
     # Using startswith method
     if word.lower().startswith('www.') or word.startswith('http'):
         print(word)
+
+
+# ------------------ **kwargs -------------- #
+def capital(**kwargs):
+    for key, value in kwargs.items():
+        print(value, 'is the capital of', key)
+
+capital(Canada='Ottawa', China='China', UK='London')
+
+def say_bye(**kwargs): # **names
+    for name in kwargs:
+        print("Au revoir,", name)
+        print("See you on", kwargs[name]["next appointment"])
+        print()
+humans = {"Laura": {"next appointment": "Tuesday"},
+          "Robin": {"next appointment": "Friday"}}
+say_bye(**humans)
