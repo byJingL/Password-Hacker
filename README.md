@@ -4,10 +4,10 @@
 socket module, itertools module, JSON, time module, generator and iterator
 ## How to use
 
-# How the program works
+## How the program works
 
-# Two ways to find the password
-## Brute Force
+## Two ways to find the password
+### Brute Force
 Define characters available
 ```
 NUM = '0123456789'
@@ -25,7 +25,7 @@ def brute_force_find_password():
             yield ''.join(item)
 ```
 The outer loop tests all possible password lengths. For a specific password length, the inner loop iterates through each combination using `itertools.product()`. The combination is converted from tuple to string for testing.
-## Dictionary-Based Brute Force
+### Dictionary-Based Brute Force
 A dictionary with the most typical passwords provided in [password.txt](/passwords.txt) is used.
 All possible combinations of upper and lower case for each letter for all words of the password dictionary will be checked one by one.
 ```
