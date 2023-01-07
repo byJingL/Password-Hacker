@@ -6,9 +6,9 @@ socket module, itertools module, JSON, time module, generator and iterator
 1. Find out the correct username using [logins.txt](/logins.txt).
    - If login username is wrong, the response will be 'Wrong login!'.
    - If login username is correct, the response will be 'Wrong password!'.
-2. Find our the correct password through brute force.
+2. Find out the correct password through brute force.
    - The passwords only contains numbers and alphabets(lowercase and uppercase).
-   - The character of the password will be found one by one.
+   - The characters of the password will be found one by one.
    - If the character is correct, there will be a delay in the server response, which means the execution time will be much longer. Therefore, if a delay is detected, a correct character is found.
 
 ## How to use
@@ -57,7 +57,7 @@ How to understand the iterator `pw_pool` can create all the different combinatio
 - Take `12qwerty` as an example.
 - `[[letter.lower(), letter.upper()] for letter in password]` will return a list `[['1', '1'], ['2', '2'], ['Q', 'q'], ['W', 'w'], ['E', 'e'], ['R', 'r'], ['T', 't'], ['Y', 'y']]`
 - Also can use `([letter.lower(), letter.upper()] for letter in password)` to return a tuple.
-- By placing a `*` before list/tuple, the contents in the list/tuple will be returned without "[]" or "()". It means pass every single item in list/tuple as iterables to `itertools.product()`
+- By placing a `*` before list/tuple to unpacking, the contents in the list/tuple will be returned without "[]" or "()". It means pass every single item in list/tuple as iterables to `itertools.product()`
 - Thus, `itertools.product(['1', '1'], ['2', '2'], ['Q', 'q'], ['W', 'w'], ['E', 'e'], ['R', 'r'], ['T', 't'], ['Y', 'y']) ` will find all the possible combinations.
 
 ## Disclaimer
