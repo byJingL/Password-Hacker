@@ -2,9 +2,21 @@
 
 ## Main Skill
 socket module, itertools module, JSON, time module, generator and iterator
-## How to use
+## Theroy
+1. Find out the correct username using [logins.txt](/logins.txt).
+   - If login username is wrong, the response will be 'Wrong login!'.
+   - If login username is correct, the response will be 'Wrong password!'.
+2. Find our the correct password through brute force.
+   - The passwords only cotains numbers and alphabets(lowercase and uppercase).
+   - The character of the password will be found one by one.
+   - If the character is correct, there will be a delay in the server response, which means the execution time will be much longer. Therefore, if a delay is detected, a correct character is found.
 
-## How the program works
+## How to use
+- Download [hack.py](/hack.py) with [logins.txt](/logins.txt).
+- Run [hack.py](/hack.py) with arguments of which server to connect (IP address and port). eg.
+    ```
+    python3 hack.py localhost 9090
+    ```
 
 ## Two ways to find the password
 ### Brute Force
@@ -12,7 +24,7 @@ Define characters available
 ```
 NUM = '0123456789'
 L_CHAR = 'abcdefghijklmnopqrstuvwxyz'
-U_CHAR = L_CHAR.upper
+U_CHAR = L_CHAR.upper()
 ```
 Try all possibles cases
 ```
