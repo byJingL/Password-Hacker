@@ -7,7 +7,7 @@ socket module, itertools module, JSON, time module, generator and iterator
    - If login username is wrong, the response will be 'Wrong login!'.
    - If login username is correct, the response will be 'Wrong password!'.
 2. Find our the correct password through brute force.
-   - The passwords only cotains numbers and alphabets(lowercase and uppercase).
+   - The passwords only contains numbers and alphabets(lowercase and uppercase).
    - The character of the password will be found one by one.
    - If the character is correct, there will be a delay in the server response, which means the execution time will be much longer. Therefore, if a delay is detected, a correct character is found.
 
