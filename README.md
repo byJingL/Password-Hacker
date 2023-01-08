@@ -2,7 +2,7 @@
 
 ## Main Skill
 socket module, itertools module, JSON, time module, generator and iterator
-## Theroy
+## Theory
 1. Find out the correct username using [logins.txt](/logins.txt).
    - If login username is wrong, the response will be 'Wrong login!'.
    - If login username is correct, the response will be 'Wrong password!'.
