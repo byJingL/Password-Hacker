@@ -1,5 +1,5 @@
 # Password Hacker
-
+Program that can hack plain text password, and do so in the quickest way possible.
 ## Main Skill
 socket module, itertools module, JSON, time module, generator and iterator
 ## Theory
