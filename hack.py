@@ -10,19 +10,12 @@ CHAR = NUM + L_CHAR + U_CHAR
 
 
 def convert_to_json(username, pw):
-    """
-    Return the given username and password in JSON format.
-    :return: string in JSON format
-    """
+    """Return the given username and password in JSON format."""
     return json.dumps({"login": username, "password": pw}, indent=4)
 
 
 def response_info(info):
-    """
-    Return the response sentence according to login information.
-    :param info: username and password in JSON format
-    :return: single response sentence
-    """
+    """Return the response sentence according to login information."""
     message = info.encode()
     client_connection.send(message)
     response = client_connection.recv(1024)
@@ -33,10 +26,7 @@ def response_info(info):
 
 
 def find_login():
-    """
-    Return a generator with all login users in file.
-    :return: generator with all login users
-    """
+    """Return a generator with all login users in file."""
     with open('./logins.txt') as file:
         login_data = file.read().split('\n')
     for login in login_data:
@@ -46,6 +36,7 @@ def find_login():
 def find_password(username, max_res_time):
     """
     Return the right password for the user.
+    
     :param max_res_time: response time threshold to detect a delay in the server response when exception takes place
     :param username: correct login user
     :return: right password
