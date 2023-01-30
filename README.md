@@ -1,7 +1,7 @@
 # Password Hacker
 Program that can hack plain text password, and do so in the quickest way possible.
 ## Main Skill
-socket module, itertools module, JSON, time module, generator and iterator
+socket module, itertools module, JSON, time module, generator and iterator, argparse module
 ## Theory
 1. Find out the correct username using [logins.txt](/logins.txt).
    - If login username is wrong, the response will be 'Wrong login!'.
